@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>snippet-demo</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.projectreactor</groupId>
+      <artifactId>reactor-core</artifactId>
+      <version>3.3.0.RELEASE</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <configuration>
+              <source>11</source>
+              <target>11</target>
+              <release>11</release>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+        <configuration>
+          <source>1.8</source>
+          <doctitle>Code snippet demo</doctitle>
+          <windowtitle>Code Snippet Demo Java Reference Documentation</windowtitle>
+          <footer>Demo footer text</footer>
+          <linksource>false</linksource>
+          <links>
+            <link>https://docs.oracle.com/javase/8/docs/api/</link>
+            <link>https://projectreactor.io/docs/core/release/api/</link>
+            <link>https://netty.io/4.1/api/</link>
+            <link>http://reactivex.io/RxJava/javadoc/</link>
+          </links>
+          <isOffline>false</isOffline>
+          <doclet>org.apidesign.javadoc.codesnippet.Doclet</doclet>
+          <docletArtifact>
+            <groupId>org.apidesign.javadoc</groupId>
+            <artifactId>codesnippet-doclet</artifactId>
+            <version>0.51</version>
+          </docletArtifact>
+          <additionalOptions>
+            <additionalOption>-maxLineLength 120</additionalOption>
+            <additionalOption>-snippetpath ${project.basedir}/src/samples/java</additionalOption>
+<!--            <additionalOption>-suppressMissingLinkWarnings</additionalOption>-->
+          </additionalOptions>
+          <failOnError>false</failOnError>
+          <failOnWarnings>false</failOnWarnings>
+          <doclint>all</doclint>
+          <sourceFileExcludes>
+            <sourceFileExclude>module-info.java</sourceFileExclude>
+          </sourceFileExcludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+        <reportSets>
+          <reportSet>
+            <id>non-aggregate</id>
+            <reports>
+              <report>javadoc</report>
+            </reports>
+          </reportSet>
+          <reportSet>
+            <id>aggregate</id>
+            <inherited>false</inherited>
+            <reports>
+              <report>aggregate</report>
+            </reports>
+            <configuration>
+              <additionalOptions>-maxLineLength 120</additionalOptions>
+              <doclint>all</doclint>
+            </configuration>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <failOnWarnings>true</failOnWarnings>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>
