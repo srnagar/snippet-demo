@@ -45,11 +45,11 @@
           <footer>Demo footer text</footer>
           <linksource>false</linksource>
           <isOffline>false</isOffline>
-              <links>
-                <link>https://projectreactor.io/docs/core/release/api/</link>
-                <link>https://netty.io/4.1/api/</link>
-                <link>http://reactivex.io/RxJava/javadoc/</link>
-              </links>
+          <links>
+            <link>https://projectreactor.io/docs/core/release/api/</link>
+            <link>https://netty.io/4.1/api/</link>
+            <link>http://reactivex.io/RxJava/javadoc/</link>
+          </links>
           <doclet>org.apidesign.javadoc.codesnippet.Doclet</doclet>
           <docletArtifact>
             <groupId>org.apidesign.javadoc</groupId>
@@ -66,9 +66,6 @@
           <doclint>all</doclint>
           <quiet>true</quiet>
           <useStandardDocletOptions>false</useStandardDocletOptions>
-          <sourceFileExcludes>
-            <sourceFileExclude>module-info.java</sourceFileExclude>
-          </sourceFileExcludes>
         </configuration>
       </plugin>
     </plugins>
